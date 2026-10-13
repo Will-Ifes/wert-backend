@@ -1,16 +1,12 @@
 # WERT · API de gestão
 
-API REST para cadastros e operações de gestão, desenvolvida com **Node.js, Express, TypeScript, Prisma e PostgreSQL**.
+API REST para usuários, empresas, produtos e movimentações de estoque.
 
-[Interface do projeto](https://github.com/Will-Ifes/wert-frontend) · [Modelo de dados](prisma/schema.prisma)
+**Node.js · Express · TypeScript · Prisma · PostgreSQL**
 
-## Contexto e participação
+[Frontend](https://github.com/Will-Ifes/wert-frontend) · [Código](src) · [Execução](#executar)
 
-Trabalho desenvolvido por Will Oliveira no projeto WERT, com colaboração registrada no projeto original. Esta edição de portfólio tem histórico novo e preserva o código revisado, sem os dumps de banco do desenvolvimento original.
-
-A API organiza entidades de uma aplicação de gestão e fornece os contratos consumidos pelo frontend.
-
-## Domínios presentes
+## O projeto
 
 | Grupo | Entidades e recursos |
 | --- | --- |
@@ -22,7 +18,10 @@ A API organiza entidades de uma aplicação de gestão e fornece os contratos co
 
 O schema relaciona várias entidades a um `Tenant`. A presença dessa relação não garante, por si só, isolamento de dados: filtros e autorização de cada rota precisam ser avaliados.
 
-## Arquitetura
+<details>
+<summary><strong>Arquitetura e caminhos de leitura</strong></summary>
+
+### Arquitetura
 
 | Camada | Responsabilidade |
 | --- | --- |
@@ -34,7 +33,7 @@ O schema relaciona várias entidades a um `Tenant`. A presença dessa relação 
 
 As rotas encaminham chamadas aos módulos de domínio. Repositories concentram o acesso aos dados; services organizam operações. Essa separação facilita a leitura das regras sem misturar todos os detalhes no servidor HTTP.
 
-## Por dentro do código
+### Por dentro do código
 
 - [Modelo relacional](prisma/schema.prisma).
 - [Autenticação com hash e JWT](src/domain/authLogin/AuthLoginService.ts).
@@ -42,7 +41,12 @@ As rotas encaminham chamadas aos módulos de domínio. Repositories concentram o
 - [Domínio de movimentações](src/domain/stockManagement).
 - [Teste de API de endereços](tests/address.test.ts).
 
-## Executar localmente
+</details>
+
+<a id="executar"></a>
+
+<details>
+<summary><strong>Executar e validar</strong></summary>
 
 Requer Node.js, pnpm, PostgreSQL e certificados locais. Configure `DATABASE_URL` e `JWT_SECRET` no ambiente do processo. Confira o carregamento das variáveis: criar um arquivo `.env` não substitui garantir que o processo recebeu os valores.
 
@@ -64,7 +68,7 @@ pnpm dev
 
 Revise também as origens permitidas em `src/application/server/App.ts` para o seu frontend local. Não execute `prisma:init` sobre esta base: o schema já existe.
 
-## Qualidade e comandos
+### Comandos
 
 | Comando | Finalidade |
 | --- | --- |
@@ -77,17 +81,29 @@ Revise também as origens permitidas em `src/application/server/App.ts` para o s
 
 Os testes de integração criam e removem registros. Use um banco exclusivo de testes e confirme o `DATABASE_URL` efetivo antes de executar. A existência dos testes não é uma declaração de cobertura completa ou aprovação atual.
 
-## Evolução
+</details>
+
+<details>
+<summary><strong>Contexto, evolução e uso</strong></summary>
+
+Trabalho desenvolvido por Will Oliveira no projeto WERT, com colaboração registrada no projeto original. Esta edição de portfólio tem histórico novo e preserva o código revisado, sem os dumps de banco do desenvolvimento original.
+
+### Evolução
 
 - Simplificar a inicialização local e centralizar configuração.
 - Revisar isolamento entre empresas e autorização por operação.
 - Consolidar contratos de erro e validação.
 - Ampliar testes de autenticação, permissões e estoque.
 
-## Procedência e licença
+### Procedência
 
 A edição foi preparada para portfólio, sem importar dados reais. O manifesto declara licença ISC; preserve a atribuição e confira os termos antes de redistribuir.
 
----
 
 Mantido por **Will Oliveira** · [Perfil](https://github.com/Will-Ifes) · [LinkedIn](https://www.linkedin.com/in/wildemberg-de-jesus-oliveira/)
+
+</details>
+
+---
+
+**Will Oliveira** · [LinkedIn](https://www.linkedin.com/in/wildemberg-de-jesus-oliveira/) · [GitHub](https://github.com/Will-Ifes)
