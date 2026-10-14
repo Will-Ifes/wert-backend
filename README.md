@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="./.github/readme-cover.svg" alt="WERT | regras e dados: Uma API para organizar operações de gestão." width="100%" />
+</p>
+
 # WERT · API de gestão
 
 API REST para usuários, empresas, produtos e movimentações de estoque.
@@ -5,6 +9,13 @@ API REST para usuários, empresas, produtos e movimentações de estoque.
 **Node.js · Express · TypeScript · Prisma · PostgreSQL**
 
 [Frontend](https://github.com/Will-Ifes/wert-frontend) · [Código](src) · [Execução](#executar)
+
+## Explore o diferencial
+
+| Ponto de entrada | O que observar |
+| --- | --- |
+| [Modelagem de negócio](prisma/schema.prisma) | O schema explicita relações entre organização, pessoas, catálogo e estoque. |
+| [Regras de estoque](src/domain/stockManagement) | O domínio de movimentações permite seguir as operações além da rota HTTP. |
 
 ## O projeto
 
@@ -98,7 +109,6 @@ Trabalho desenvolvido por Will Oliveira no projeto WERT, com colaboração regis
 ### Procedência
 
 A edição foi preparada para portfólio, sem importar dados reais. O manifesto declara licença ISC; preserve a atribuição e confira os termos antes de redistribuir.
-
 
 Mantido por **Will Oliveira** · [Perfil](https://github.com/Will-Ifes) · [LinkedIn](https://www.linkedin.com/in/wildemberg-de-jesus-oliveira/)
 
